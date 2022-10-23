@@ -1,0 +1,32 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const path = require('path');
+const PORT = process.env.PORT || 3000;
+const router = express.Router();
+
+app.use('/assets', express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })) 
+app.use(cors({
+    origin: ['http://localhost:5174', 'http://localhost:8181', 'http://192.168.178.68:5173']
+}));
+
+// const router = require('./routes/router.js');
+// app.use('/api', router);
+
+app.get('/', (req, res) => {
+    res.send('hello world')
+  })
+
+app.get("/users", (req, res, next) => {
+    try {
+      res.status(200).send({
+        data: {msg: "hallo"}
+      });
+    } catch(err) {
+      next(err);
+    }
+  });
+
+app.listen(PORT, () => {console.log("server running")});
