@@ -1,45 +1,49 @@
 const https = require('https');
 
 module.exports = {
-    test() {
-        console.log("test send email!!! TODO")
+    test(d = null) {
+        console.log("test send email!!! TODO", d)
+        return d;
     },
-    sendEmail: (d) => {
-        const data = JSON.stringify({
-            "access_key": "f3063698-026f-445a-833c-fe309062c103",
-            "email": "test@test.com",
-            "subject": "test subject2",
-            "message": "text bla lorem"
-            });
+    sendEmail: (d) => { 
 
-            const options = {
-                hostname: 'api.web3forms.com',
-                path: '/submit',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length,
-                    "accept": "*/*"
-                }
+        const defaultValues = {
+            "access_key": process.env.WEB3FORMS_SECRET_KEY,
+            "subject": "BienchenOase Contact Form",
+        }
+        const mergedData = {...defaultValues, ...d.data}
+      
+        const data = JSON.stringify(mergedData);
+        console.log(data);
+
+        const options = {
+            hostname: 'api.web3forms.com',
+            path: '/submit',
+            method: 'POST',
+            headers: {
+                'user-agent': 'myapp/2022.6.0',
+                'content-type': 'application/json',
+                'content-length': data.length,
+                'accept': '*/*'
             }
+        }
 
-            const request = https.request(options, res => {
-            let data = '';
-            console.log('Status Code:', res.statusCode);
-            res.on('data', chunk => {
-                data += chunk;
+        const request = https.request(options, res => {
+        let data = '';
+        console.log('Status Code:', res.statusCode);
+        res.on('data', chunk => {
+            data += chunk;
+        })
+
+        res.on('end', () => {
+            console.log('Body: ', JSON.parse(data));
             })
+        })
+        .on('error', err => {
+            console.log('Error: ', err.message);
+        })
 
-            res.on('end', () => {
-                console.log('Body: ', JSON.parse(data));
-                })
-            })
-            .on('error', err => {
-                console.log('Error: ', err.message);
-            })
-
-            request.write(data);
-            request.end();
-
+        request.write(data);
+        request.end();
     }
 }

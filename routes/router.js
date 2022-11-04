@@ -40,7 +40,25 @@ router.use("/users", usersRouter);
  const contractsRouter = require("../routes/contracts");
  router.use("/contracts", contractsRouter);
 
+ /**
+ * CONTRACTS
+ * POST
+ * @note: user will store in req.userData
+ */
+  const emailsRouter = require("../routes/emails");
+  router.use("/email", emailsRouter);
+  /*
+  router.post("/email", (req, res, next) => {
 
+    try {
+      res.status(200).send({
+        data: req.body
+      });
+    } catch(err) {
+      next(err);
+    }
+  });
+  */
 /*
   router.get("/areas", (req, res, next) => {
 
