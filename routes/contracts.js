@@ -3,6 +3,7 @@ const contractController = new ContractController();
 const express = require("express"); 
 const router = express.Router();
 // const userMiddleware = require('../middleware/users.js'); 
+const emailService = require("../Services/emailService");
 
 router.get('/', async (req, res, next) => {
     const response = await contractController.getAll();
@@ -15,6 +16,11 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+  //console.log("A:",req.body)
+  //contractController.post(req.body)
+  //res.status(200).send( {data: emailService.sendEmail(req.body)});
+  //res.status(200).send( {data: 1});
+  //return;
   let response = await contractController.post(req.body);
   let msg = "contract created!";
   let statusCode = 201;

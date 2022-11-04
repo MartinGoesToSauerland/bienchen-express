@@ -11,7 +11,9 @@ module.exports = class ContractService extends Service {
         super(Model, Repository);
     }
 
-    async create(data) {
+    async create(d) {
+        const data = d.data
+
         // build UserModel if not exists or get User (by email)
         // check if user exists
         const userService = new UserService;
@@ -62,8 +64,22 @@ module.exports = class ContractService extends Service {
         //parcel.updated_at = new Date().toISOString();
         const parcel_inserted_id = await parcelService.updateAfterEdit(parcel, newParcelData);
         // send Email to WMAgrar
-        emailService.test();
+        // emailService.sendEmail(data);
+        emailService.sendEmail({data: this.flatObject(d.data)});
         // successdull response
         return parcel_inserted_id;
     }    
+
+    flatObject(nestyObject) {
+        console.log("C", nestyObject)
+        let flatedObject = {}
+        Object.keys(nestyObject).forEach(key => {
+          if (typeof nestyObject[key] == "object") {
+            flatedObject = {...flatedObject,...nestyObject[key]};
+          } else {
+              flatedObject[key] = nestyObject[key]; 
+          }
+        })        
+        return flatedObject;
+    }
 }
