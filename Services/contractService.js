@@ -1,5 +1,5 @@
 const Repository = require("../Repositories/contractRepository");
-const Model = require("../Models/Contract");
+const Model = require("../Models/contract");
 const Service = require("./service");
 const UserService = require("./userService");
 const ParcelService = require("./parcelService");
