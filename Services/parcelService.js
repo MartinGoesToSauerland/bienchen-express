@@ -1,5 +1,5 @@
 const Repository = require("../Repositories/parcelRepository");
-const Model = require("../Models/Parcel");
+const Model = require("../Models/parcel");
 const Service = require("./service");
 
 module.exports = class ParcelService extends Service {
