@@ -12,8 +12,13 @@ app.use(cors({
     origin: ['http://localhost:5173','http://localhost:3000', 'http://localhost:8181', 'http://192.168.178.68:5173']
 }));
 
+
+
 const router = require("./routes/router.js");
+const staticRouter = require("./routes/staticRouter")
 app.use('/api', router);
+app.use('/', staticRouter);
+
 /*
 app.get('/', (req, res) => {
     res.send('hello world')
