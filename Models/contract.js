@@ -15,8 +15,8 @@ module.exports = class Contract extends Model {
     user_id;
     parcel_id;
     active;
-    start;
-    end;
+    start_at;
+    end_at;
     updated_at;
     created_at;
 
@@ -26,7 +26,7 @@ module.exports = class Contract extends Model {
     }
     get parcel_id() {
         return this.parcel_id;
-    }    
+    }
     get active() {
         return this.active;
     }
@@ -35,10 +35,10 @@ module.exports = class Contract extends Model {
     }
     get end_at() {
         return this.end_at;
-    }        
+    }
     get updated_at() {
         return this.updated_at;
-    }    
+    }
     get created_at() {
         return this.created_at;
     }
@@ -48,7 +48,7 @@ module.exports = class Contract extends Model {
     }
     set parcel_id(val) {
         this.parcel_id = val;
-    }    
+    }
     set active(val) {
         this.active = val;
     }
@@ -57,10 +57,10 @@ module.exports = class Contract extends Model {
     }
     set end_at(val) {
         this.end_at = val;
-    }  
+    }
     set updated_at(val) {
         this.updated_at = val;
-    }          
+    }
     set created_at(val) {
         this.created_at = val;
     }
@@ -81,5 +81,5 @@ module.exports = class Contract extends Model {
 
     propertyNames() {
         return this.props;
-    }    
+    }
 }

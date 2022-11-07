@@ -1,8 +1,8 @@
 const ContractController = require("../Controllers/contractController");
 const contractController = new ContractController();
-const express = require("express"); 
+const express = require("express");
 const router = express.Router();
-// const userMiddleware = require('../middleware/users.js'); 
+// const userMiddleware = require('../middleware/users.js');
 const emailService = require("../Services/emailService");
 
 router.get('/', async (req, res, next) => {
@@ -32,6 +32,12 @@ router.post('/', async (req, res, next) => {
   return res.status(statusCode).send( {message: msg, data: response} );
 });
 
+router.put('/status/:id', async (req, res, next) => {
+  // const response = req.params.id
+  const response = await contractController.changeStatus(req, "start");
+  return res.status(201).send( {message: "contract updated!", data: response} );
+});
+
 /*
 router.delete('/:id', userMiddleware.isLoggedIn, async (req, res, next) => {
   const response = await countryController.delete(req);
@@ -43,10 +49,7 @@ router.post('/', userMiddleware.isLoggedIn, async (req, res, next) => {
   return res.status(201).send( {message: "country created!", data: response} );
 });
 
-router.put('/:id', userMiddleware.isLoggedIn, async (req, res, next) => {
-  const response = await countryController.put(req);
-  return res.status(201).send( {message: "country updated!", data: response} );
-});
+
 
 
 
