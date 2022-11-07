@@ -105,11 +105,15 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO contracts (user_id, parcel_id, active, start_at, end_at) VALUES (?,?,?,?,?)'
                 db.run(insert, [1, 1, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [2, 2, 1, null, null ]);
-                db.run(insert, [2, 3, 1, null, null ]);
-                db.run(insert, [2, 4, 1, null, null ]);
-                db.run(insert, [3, 5, 1, null, null ]);
-                db.run(insert, [4, 6, 1, null, null ]);
+                db.run(insert, [2, 1, 0, null, null ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [1, 2, 0, null, null ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [1, 3, 0, null, null ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [1, 4, 0, null, null ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [1, 5, 0, null, null ]);
+                // db.run(insert, [2, 3, 1, null, null ]);
+                // db.run(insert, [2, 4, 1, null, null ]);
+                // db.run(insert, [3, 5, 1, null, null ]);
+                // db.run(insert, [4, 6, 1, null, null ]);
             }
         });
 
