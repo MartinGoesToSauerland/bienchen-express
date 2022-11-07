@@ -6,7 +6,7 @@ module.exports = class ParcelRepository extends Repository {
 
     async getAllWithRelationsByFilter(key, value) {
         // get all parcels
-        const sql = `SELECT p.id, p.status FROM ${this.table} p WHERE p.${key} = ? LIMIT 10`;
+        const sql = `SELECT p.id, p.status FROM ${this.table} p WHERE p.${key} = ?`;
         const params = [value];
         const parcels = await this.all(sql, params);
 
@@ -54,7 +54,7 @@ module.exports = class ParcelRepository extends Repository {
         console.log(data)
         return data.filter(_ => _.active != 0);
     }
-        
+
     createCountry(data) {
         const sql = `INSERT INTO ${this.table} (code, name) VALUES (?,?)`;
         const params = [data.code, data.name];
