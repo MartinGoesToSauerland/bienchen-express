@@ -6,6 +6,10 @@ module.exports = class ContractController extends Controller {
         super(Service);
     }
 
+    changeStatus(req, status) {
+        return this.Service.changeStatus(req.params.id, status);
+    }
+
     /*
     getAll(data) {
         let results;
