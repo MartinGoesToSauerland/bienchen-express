@@ -7,12 +7,14 @@ const PORT = process.env.PORT || 3000;
 
 app.use('/assets', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })) 
+app.use(express.urlencoded({ extended: true }));
 app.use(cors({
     origin: ['http://localhost:5173','http://localhost:3000', 'http://localhost:8181', 'http://192.168.178.68:5173', 'https://bienchen-express.onrender.com']
 }));
 
 
+console.log(`./.env.${process.env.NODE_ENV}`);
+console.log( process.env.EMAIL_PROVIDER);
 
 const router = require("./routes/router.js");
 const staticRouter = require("./routes/staticRouter")
