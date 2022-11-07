@@ -22,6 +22,7 @@ module.exports = class ParcelService extends Service {
               area_id: _.area_id,    
               status: statusMapper[_.status],
               details: {
+                user_id: _.user_id,
                 firstname: _.firstname,
                 lastname: _.lastname,
                 start_at: _.start_at,
