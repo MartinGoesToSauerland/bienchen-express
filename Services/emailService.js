@@ -6,7 +6,7 @@ module.exports = {
         return d;
     },
     sendEmail: (d) => { 
-
+        // return true;
         const defaultValues = {
             "access_key": process.env.WEB3FORMS_SECRET_KEY,
             "subject": "BienchenOase Contact Form",
