@@ -30,23 +30,34 @@ module.exports = class Parcel extends Model {
     }
     get phone() {
         return this.phone;
-    }    
+    }
     get created_at() {
         return this.created_at;
     }
-
+    /* maping */
+    set firstName(val) {
+        this.firstname = val;
+    }
     set firstname(val) {
         this.firstname = val;
     }
     set lastname(val) {
         this.lastname = val;
     }
+    /* maping */
+    set lastName(val) {
+        this.lastname = val;
+    }
     set email(val) {
         this.email = val;
     }
+    /* maping */
     set phone(val) {
         this.phone = val;
-    }    
+    }
+    set phoneNumber(val) {
+        this.phone = val;
+    }
     set created_at(val) {
         this.created_at = val;
     }
@@ -67,5 +78,5 @@ module.exports = class Parcel extends Model {
 
     propertyNames() {
         return this.props;
-    }    
+    }
 }
