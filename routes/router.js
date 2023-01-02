@@ -37,12 +37,20 @@ router.use("/users", usersRouter);
  const contractsRouter = require("../routes/contracts");
  router.use("/contracts", contractsRouter);
 
- /**
+/**
  * EMAILS
  * POST
  * @note: user will store in req.userData
  */
-  const emailsRouter = require("../routes/emails");
-  router.use("/email", emailsRouter);
+const emailsRouter = require("../routes/emails");
+router.use("/email", emailsRouter);
+
+/**
+ * EMAILS
+ * POST
+ * @note: user will store in req.userData
+ */
+const statsRouter = require("../routes/stats");
+router.use("/stats", statsRouter);
 
 module.exports = router;

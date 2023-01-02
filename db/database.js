@@ -27,10 +27,57 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             } else {
                 // Table just created, creating some rows
                 const insert = 'INSERT INTO users (firstname, lastname, email, phone, password) VALUES (?,?,?,?,?)';
-                db.run(insert, ["adam","mickiewicz","admin@example.com","0172",md5("password")]);
-                db.run(insert, ["user","user","user@example.com","",md5("user123456")]);
-                db.run(insert, ["user2","","user2@example.com","",md5("password")]);
-                db.run(insert, ["user3","","user3@example.com","",md5("password")]);
+                db.run(insert, ["Adam","Mickiewicz","admin@example.com","0172",md5("password")]);
+                db.run(insert, ["Laura","Schmidt","user@example.com","",md5("user123456")]);
+                db.run(insert, ["August","Momper","user2@example.com","",md5("password")]);
+                db.run(insert, ["Heidi","Herrmann","user3@example.com","",md5("password")]);
+                db.run(insert, ["Sven","Zeuner","user4@example.com","",md5("password")]);
+                db.run(insert, ["Susen","Fischer","user5@example.com","",md5("password")]);
+                db.run(insert, ["Karl","Georgi","user6@example.com","",md5("password")]);
+                db.run(insert, ["Franziska","Karaszow","user7@example.com","",md5("password")]);
+                db.run(insert, ["Franziska","Karaszow","user8@example.com","",md5("password")]);
+                db.run(insert, ["Gregori","Karaszow","user9@example.com","",md5("password")]);
+                db.run(insert, ["Samuel","Freitag","user10@example.com","",md5("password")]);
+                db.run(insert, ["Gerad","Przybysz","user11@example.com","",md5("password")]);
+                db.run(insert, ["Antonia","Roloff","user12@example.com","",md5("password")]);
+                db.run(insert, ["Dirk","Roloff","user13@example.com","",md5("password")]);
+                db.run(insert, ["Guido","Schmidt","user14@example.com","",md5("password")]);
+                db.run(insert, ["Paul","von An","user15@example.com","",md5("password")]);
+                db.run(insert, ["Markus","Wendicke","user16@example.com","",md5("password")]);
+                db.run(insert, ["Christoph","Elgeti","user17@example.com","",md5("password")]);
+                db.run(insert, ["Ralf","Bobusch","user18@example.com","",md5("password")]);
+                db.run(insert, ["Ewelina","Schmidt","user19@example.com","",md5("password")]);
+                db.run(insert, ["Bartek","Owoc","user20@example.com","",md5("password")]);
+                db.run(insert, ["Paulian","Owoc","user21@example.com","",md5("password")]);
+                db.run(insert, ["Kasia","Schniadecka","user22@example.com","",md5("password")]);
+                db.run(insert, ["Kszyciek","Nieiewm","user23@example.com","",md5("password")]);
+                db.run(insert, ["Michel","Admowitsch","user24@example.com","",md5("password")]);
+                db.run(insert, ["Anja","Lehmann","user25@example.com","",md5("password")]);
+                db.run(insert, ["Sina","Schulze","user26@example.com","",md5("password")]);
+                db.run(insert, ["Peggy","Kong","user27@example.com","",md5("password")]);
+                db.run(insert, ["Jan","Schütte","user28@example.com","",md5("password")]);
+                db.run(insert, ["Tobias","Haberland","user28@example.com","",md5("password")]);
+                db.run(insert, ["Tobias","Schütze","user29@example.com","",md5("password")]);
+                db.run(insert, ["Kristina","Schäfer","user30@example.com","",md5("password")]);
+                db.run(insert, ["Silke","Brunk","user31@example.com","",md5("password")]);
+                db.run(insert, ["Alexander","Haase","user32@example.com","",md5("password")]);
+                db.run(insert, ["Hartmut","Bar","user33@example.com","",md5("password")]);
+                db.run(insert, ["Jan","Kafka","user34@example.com","",md5("password")]);
+                db.run(insert, ["Peggy","Kong","user35@example.com","",md5("password")]);
+                db.run(insert, ["Susan","Tonka","user36@example.com","",md5("password")]);
+                db.run(insert, ["Gordon","Bednacrek","user37@example.com","",md5("password")]);
+                db.run(insert, ["Sven","Bagdonat","user38@example.com","",md5("password")]);
+                db.run(insert, ["Anitta","Lehman","user39@example.com","",md5("password")]);
+                db.run(insert, ["Thomas","Eberwien","user40@example.com","",md5("password")]);
+                db.run(insert, ["Dirk","Englert","user41@example.com","",md5("password")]);
+                db.run(insert, ["Alexander","Sparr","user42@example.com","",md5("password")]);
+                db.run(insert, ["Anegla","Moritz","user43@example.com","",md5("password")]);
+                db.run(insert, ["Marta","Sieckie","user44@example.com","",md5("password")]);
+                db.run(insert, ["Kristina","Pinz","user45@example.com","",md5("password")]);
+                db.run(insert, ["Julia","Elgtie","user46@example.com","",md5("password")]);
+                db.run(insert, ["Jona","Siecke","user47@example.com","",md5("password")]);
+                db.run(insert, ["Matthias","Engel","user48@example.com","",md5("password")]);
+                db.run(insert, ["Falk","Thomas","user49@example.com","",md5("password")]);
             }
         });
 
@@ -54,7 +101,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             } else {
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO areas (geo_json, name, country, state, zip, street, size_qm, description) VALUES (?,?,?,?,?,?,?,?)'
-                db.run(insert, [ JSON.stringify({ "type": "Feature", "properties": { "id": 1, "Wiese001": "Wiese001",
+                db.run(insert, [ JSON.stringify({ "type": "Feature", "properties": { "id": 1, "Wiese001": "Wiese Hollebener Bienenglück",
                 "Areal": "Holleben", "Flaeche_qm": 6491 }, "geometry": { "type": "Polygon",
                 "coordinates": [ [ [ 11.9024726, 51.4281604 ], [ 11.9029897, 51.4296162 ], [
                 11.9028741, 51.429686 ], [ 11.9027651, 51.4297207 ], [ 11.902665, 51.4297122 ], [
@@ -63,7 +110,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
                 ], [ 11.9020153, 51.4287356 ], [ 11.9017915, 51.4283573 ], [ 11.9017738,
                 51.4283183 ], [ 11.9018028, 51.4282933 ], [ 11.9019118, 51.4282684 ], [
                 11.9023393, 51.4282004 ], [ 11.9024498, 51.428178 ], [ 11.9024725, 51.4281604 ] ]
-                ] } }) ,"Wiese001", "Deutschland", "Sachsen-Anhalt", "06188", "Ernst-Thälmann-Strasse (L 163)", 6491, "Holleben" ]);
+                ] } }) ,"Wiese Hollebener Bienenglück", "Deutschland", "Sachsen-Anhalt", "06188", "Ernst-Thälmann-Strasse (L 163)", 6491, "Holleben" ]);
             }
         });
 
@@ -104,12 +151,12 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             } else {
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO contracts (user_id, parcel_id, active, start_at, end_at) VALUES (?,?,?,?,?)'
-                db.run(insert, [1, 1, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [2, 1, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [1, 2, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [1, 3, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [1, 4, 0, null, null ]); // , "2022-06-01", "2023-02-01"
-                db.run(insert, [1, 5, 0, null, null ]);
+                db.run(insert, [1, 1, 0, "2022-06-01", "2023-06-01" ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [2, 2, 0, "2022-06-01", "2023-06-01" ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [3, 3, 0, "2022-06-01", "2023-06-01" ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [4, 4, 0, "2022-06-01", "2023-06-01" ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [5, 5, 0, "2022-06-01", "2023-06-01" ]); // , "2022-06-01", "2023-02-01"
+                db.run(insert, [6, 6, 0, "2022-06-01", "2023-06-01" ]);
                 // db.run(insert, [2, 3, 1, null, null ]);
                 // db.run(insert, [2, 4, 1, null, null ]);
                 // db.run(insert, [3, 5, 1, null, null ]);
